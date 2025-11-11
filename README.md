@@ -1,6 +1,7 @@
-# 🧭 PythonUtilities — The Bocan Online Developer Toolkit
+# PythonUtilities — The Bocan Online Developer Toolkit
 
-A unified command-line toolkit for creating, discovering, and managing Bocan Online projects.
+A unified command-line toolkit for creating, discovering, and managing 
+Bocan Online and Bocan Studio projects.
 
 ---
 
@@ -33,12 +34,15 @@ inspired by GNU philosophy and Unix composability.
 - Initialize Git.
 - Create and link remote repos with configured namespace. 
 - Register project locally with bo utilities for quick discovery and launch.
+
 **bo-open**
 - Discover projects via fuzzy search.
 - Load configured tmuxp sessions to jump back into project development.
 - Start local or containerized contexts configured for the project.
+
 **bo-clean**
 - Maintain project registry by removing invalid entries.
+
 **bo-status**
 - Check synchronization between local and remote repositories.
 
