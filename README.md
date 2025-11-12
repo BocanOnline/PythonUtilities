@@ -46,6 +46,19 @@ inspired by GNU philosophy and Unix composability.
 **bo-status**
 - Check synchronization between local and remote repositories.
 
+**bo-help**
+- Display developer guides and tips (DEVELOPER.md) for each project.
+- Discover markdown files via fuzzy search and open in man style viewer.
+
+**bo-setup**
+- Initialize project registry.
+- Scan project roots for repositories to register.
+
+**bo-switch**
+- Discover tmux sessions via fuzzy search.
+- Quickly switch between active tmux sessions.
+- Clean up or end tmux sessions.
+
 ---
 
 ### Architecture Direction
@@ -59,6 +72,9 @@ inspired by GNU philosophy and Unix composability.
 ---
 
 ### Documentation
+
+README.md
+DEVELOPER.md
 
 ---
 

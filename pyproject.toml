@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonutilities"
+version = "0.1.0"
+description = "The Bocan Online Developer Toolkit"
+requires-python = ">=3.10"
+dependencies = ["typer", "rich", "pyyaml"]
+
+[project.scripts]
+bo-open = "bo_open.cli:app"
+bo-help = "bo_help.cli:app"
+
+[tool.setuptools]
+packages = ["bo_clean", "bo_core", "bo_help", "bo_new", "bo_open", "bo_setup", "bo_status"]
