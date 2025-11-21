@@ -27,6 +27,51 @@ inspired by GNU philosophy and Unix composability.
 
 ---
 
+## Installation
+
+### 1. Create a global virtual environment
+It is recommended to install Bocan Utilities into a dedicated venv so the commands are available system-wide:
+
+```bash
+python3 -m venv ~/.venvs/bocan
+```
+
+### 2. Activate the environment
+```bash
+source ~/.venvs/bocan/bin/activate
+```
+
+### 3. Install in editable mode
+Install the utilities so updates take effect immediately when developing:
+
+```bash
+pip install -e /path/to/PythonUtilities
+```
+
+### 4. Add the venv to your PATH
+Append the following line to your `~/.zshrc`:
+
+```bash
+export PATH="$HOME/.venvs/bocan/bin:$PATH"
+```
+
+Then reload:
+
+```bash
+source ~/.zshrc
+```
+
+### 5. Verify installation
+```bash
+bo-open
+bo-help
+bo-switch
+```
+
+These commands should now be available globally, without activating the environment again.
+
+---
+
 ### Planned Utilities
 
 **bo-new**
@@ -36,7 +81,7 @@ inspired by GNU philosophy and Unix composability.
 - Register project locally with bo utilities for quick discovery and launch.
 
 **bo-open**
-- Discover projects via fuzzy search.
+- [DONE] Discover projects via fuzzy search.
 - Load configured tmuxp sessions to jump back into project development.
 - Start local or containerized contexts configured for the project.
 
@@ -47,7 +92,7 @@ inspired by GNU philosophy and Unix composability.
 - Check synchronization between local and remote repositories.
 
 **bo-help**
-- Display developer guides and tips (DEVELOPER.md) for each project.
+- [DONE] Display developer guides and tips (DEVELOPER.md) for each project.
 - Discover markdown files via fuzzy search and open in man style viewer.
 
 **bo-setup**
