@@ -4,45 +4,44 @@ import typer
 import yaml
 from rich.console import Console
 from rich.panel import Panel
-from rich.markdown import Markdown
 
 app = typer.Typer()
 console = Console(file=sys.stderr)
 
-def find_contributing_md(start_dir: Path | None = None) -> Path | None:
-    """Search upward from current directory for CONTRIBUTING.md"""
+def find_config_file(start_dir: Path | None = None) -> Path | None:
+    """Search upward from current directory for .bocan.yaml"""
     current = start_dir or Path.cwd()
 
     for parent in [current, *current.parents]:
-        candidate = parent / "CONTRIBUTING.md"
+        candidate = parent / ".bocan.yaml"
         if candidate.exists():
             return candidate
 
     return None
 
-def parse_contributing_md(path: Path) -> tuple[dict, str]:
+def parse_config_file(path: Path) -> dict:
     """Split YAML front matter and markdown body"""
     text = path.read_text(encoding="utf-8").strip()
 
+    """
     if not text.startswith("---"):
-        return {}, text
+        return {}
 
     parts = text.split("---", 2)
     if len(parts) < 3:
-        return {}, text
+        return {}
 
     yaml_block = parts[1].strip()
-    markdown_body = parts[2].strip()
-
+    """
     try:
-        metadata = yaml.safe_load(yaml_block) or {}
+        metadata = yaml.safe_load(text) or {}
     except yaml.YAMLError as e:
         console.print(f"[red]yaml parsing error in {path.name}:[/red] {e}")
         metadata = {}
 
-    return metadata, markdown_body
+    return metadata
 
-def render_help(metadata: dict, body: str):
+def render_help(metadata: dict):
     """Render the parsed metadata and body with rich formatting"""
     project_name = metadata.get("project", "Unknown Project")
     description = metadata.get("description", "")
@@ -83,7 +82,7 @@ def render_help(metadata: dict, body: str):
             guide += "".join(cmd) + "".join(desc)
 
     console.print(
-        Panel(guide, title="Developer Guide", expand=False, border_style="cyan")
+        Panel(guide, title="Bocan Online Developer Guide", expand=False, border_style="cyan")
     )
 
 #    if body.strip():
@@ -94,15 +93,15 @@ def render_help(metadata: dict, body: str):
 
 @app.command()
 def main():
-    """Locate the CONTRIBUTING.md file for the current project."""
-    path = find_contributing_md()
+    """Locate the .bocan.yaml file for the current project."""
+    path = find_config_file()
 
     if not path:
         console.print("[red]No CONTRIBUTING.md found for this project.[/red]")
         raise typer.Exit(1)
     
-    metadata, body = parse_contributing_md(path)
-    render_help(metadata, body)   
+    metadata = parse_config_file(path)
+    render_help(metadata)   
 
     raise typer.Exit(0)
 

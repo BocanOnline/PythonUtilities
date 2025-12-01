@@ -1,27 +1,4 @@
----
-project: PythonUtilities
-description: A unified command-line toolkit for creating, discovering, and managing Bocan Online and Bocan Studio development projects.
-language: Python
-environment: Python Virtual Environment
-requires:
-  - python3
-  - pip3
-startup:
-  - nvim . --(open editor at project root)
-  - nvim ~/.config/bo --(open editor at config root)
-  - source .venv/bin/venv --(start python virtual environment)
-other:
-  - python -m venv .venv --(initialize python virtual environment in project directory)
-  - pip install -r requirements.txt --(install project dependencies)
-  - pip freeze > requirements.txt --(echo all installed depndencies to requirements.txt)
-  - pip install -e . --(install project to local virtual environment)
-  - bo_open --(test commands (bo-open, bo-new, bo-help, bo-setup, bo-switch, bo-status))
-  - deactivate --(deactivate python virtual environment)
----
-> [!NOTE]
-> The above YAML meta-data is used by the [Bocan Online Developer Toolkit](https://github.com/BocanOnline/PythonUtilities)
-
-# PythonUtilities Developer Guide
+# PythonUtilities Developer and Contributing Guide
 
 This project is written in Python using the Python Virtual Environment.
 The project includes the project files as well as config files located at your 
