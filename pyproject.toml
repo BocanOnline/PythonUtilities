@@ -12,6 +12,7 @@ dependencies = ["typer", "rich", "pyyaml"]
 [project.scripts]
 bo-open = "bo_open.cli:app"
 bo-help = "bo_help.cli:app"
+bo-new = "bo_new.cli:app"
 
 [tool.setuptools]
 packages = ["bo_clean", "bo_core", "bo_help", "bo_new", "bo_open", "bo_setup", "bo_status"]

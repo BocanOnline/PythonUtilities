@@ -7,8 +7,7 @@ Bocan Online and Bocan Studio projects.
 
 ### Overview
 
-**PythonUtilities** is a modular CLI system built in **Python**, integrating 
-with **tmuxp** to manage project contexts and development environments.
+**PythonUtilities** is a modular CLI system built in **Python**, integrating with **tmuxp** to manage project contexts and development environments.
 
 It brings together project creation, discovery, launching, and maintenance 
 into a cohesive personal workflow — a minimal, text-based "developer OS" 
@@ -61,7 +60,14 @@ Then reload:
 source ~/.zshrc
 ```
 
-### 5. Verify installation
+### 5. Deactivate the environment
+The environment does not need to remain active to use the commands.
+
+```bash
+deactivate
+```
+
+### 6. Verify installation
 ```bash
 bo-open
 bo-help
@@ -75,54 +81,40 @@ These commands should now be available globally, without activating the environm
 ### Planned Utilities
 
 **bo-new**
-- Scaffold new projects based on language and framework.
-- Initialize Git.
-- Create and link remote repos with configured namespace. 
-- Register project locally with bo utilities for quick discovery and launch.
+- [ ] Capture project ideas in a registry to choose to start on command.
+- [ ] Scaffold new projects based on language and framework.
+- [ ] Initialize Git.
+- [ ] Create and link remote repos with configured namespace. 
+- [ ] Register project locally with bo utilities for quick discovery and launch.
 
 **bo-open**
-- [DONE] Discover projects via fuzzy search.
-- Load configured tmuxp sessions to jump back into project development.
-- Start local or containerized contexts configured for the project.
+- [X] Discover projects via fuzzy search.
+- [X] Load configured tmuxp sessions to jump back into project development.
+- [X] Show project information on fuzzy search (tmux session, git , github).
+- [X] Start local or containerized contexts configured for the project.
 
 **bo-clean**
-- Maintain project registry by removing invalid entries.
+- [ ] Maintain project registry by removing invalid entries.
 
 **bo-status**
-- Check synchronization between local and remote repositories.
+- [ ] Check synchronization between local and remote repositories.
 
 **bo-help**
-- [DONE] Display developer guides and tips (DEVELOPER.md) for each project.
-- Discover markdown files via fuzzy search and open in man style viewer.
+- [X] Display developer guides and tips (DEVELOPER.md) for each project.
+- [ ] Discover markdown files via fuzzy search and open in man style viewer.
 
 **bo-setup**
-- Initialize project registry.
-- Scan project roots for repositories to register.
-
-**bo-switch**
-- Discover tmux sessions via fuzzy search.
-- Quickly switch between active tmux sessions.
-- Clean up or end tmux sessions.
-
----
-
-### Architecture Direction
-
-- **Language:** Python  
-- **Session Management:** tmuxp  
-- **Design:** small, composable commands in a single monorepo  
-- **Configuration:** stored in `~/.config/bo/`  
-- **Brand:** *Bocan Online* — minimal, developer-oriented, GNU-inspired
-
----
+- [ ] Initialize project registry.
+- [ ] Scan project roots for repositories to register.
 
 ### Documentation
 
 README.md
-DEVELOPER.md
+[CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ---
 
 ### License
+This project is published under The Unlicense. The code is public domain; use it however you want.
 
-To be determined — likely MIT or GPLv3 depending on ecosystem compatibility.
+Full text in [LICENSE.md](/LICENSE.md)

@@ -1,0 +1,16 @@
+session_name: PythonUtilities
+windows:
+  - window_name: editor-project
+    shell_command_before:
+      - cd ~/Developer/BocanOnline/PythonUtilities/
+      - nvim
+  - window_name: shell
+    shell_command_before:
+      - cd ~/Developer/BocanOnline/PythonUtilities/
+  - window_name: editor-config
+    shell_command_before:
+      - cd ~/.config
+      - nvim
+  - window_name: shell
+    shell_command_before:
+      - cd ~/Developer/BocanOnline/PythonUtilities/

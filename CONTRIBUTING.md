@@ -18,6 +18,8 @@ other:
   - bo_open --(test commands (bo-open, bo-new, bo-help, bo-setup, bo-switch, bo-status))
   - deactivate --(deactivate python virtual environment)
 ---
+> [!NOTE]
+> The above YAML meta-data is used by the [Bocan Online Developer Toolkit](https://github.com/BocanOnline/PythonUtilities)
 
 # PythonUtilities Developer Guide
 

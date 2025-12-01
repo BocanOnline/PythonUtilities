@@ -9,18 +9,18 @@ from rich.markdown import Markdown
 app = typer.Typer()
 console = Console(file=sys.stderr)
 
-def find_developer_md(start_dir: Path | None = None) -> Path | None:
-    """Search upward from current directory for DEVELOPER.md"""
+def find_contributing_md(start_dir: Path | None = None) -> Path | None:
+    """Search upward from current directory for CONTRIBUTING.md"""
     current = start_dir or Path.cwd()
 
     for parent in [current, *current.parents]:
-        candidate = parent / "DEVELOPER.md"
+        candidate = parent / "CONTRIBUTING.md"
         if candidate.exists():
             return candidate
 
     return None
 
-def parse_developer_md(path: Path) -> tuple[dict, str]:
+def parse_contributing_md(path: Path) -> tuple[dict, str]:
     """Split YAML front matter and markdown body"""
     text = path.read_text(encoding="utf-8").strip()
 
@@ -94,14 +94,14 @@ def render_help(metadata: dict, body: str):
 
 @app.command()
 def main():
-    """Locate the DEVELOPER.md file for the current project."""
-    path = find_developer_md()
+    """Locate the CONTRIBUTING.md file for the current project."""
+    path = find_contributing_md()
 
     if not path:
-        console.print("[red]No DEVELOPER.md found for this project.[/red]")
+        console.print("[red]No CONTRIBUTING.md found for this project.[/red]")
         raise typer.Exit(1)
     
-    metadata, body = parse_developer_md(path)
+    metadata, body = parse_contributing_md(path)
     render_help(metadata, body)   
 
     raise typer.Exit(0)
