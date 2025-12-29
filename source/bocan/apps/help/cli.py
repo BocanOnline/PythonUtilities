@@ -1,12 +1,15 @@
+#standard library
 from pathlib import Path
 import sys
+
+#vendor library
 import typer
 import yaml
 from rich.console import Console
 from rich.panel import Panel
 
-app = typer.Typer()
-console = Console(file=sys.stderr)
+#project library
+import bocan.core as bocan
 
 def find_config_file(start_dir: Path | None = None) -> Path | None:
     """Search upward from current directory for .bocan.yaml"""
@@ -36,7 +39,7 @@ def parse_config_file(path: Path) -> dict:
     try:
         metadata = yaml.safe_load(text) or {}
     except yaml.YAMLError as e:
-        console.print(f"[red]yaml parsing error in {path.name}:[/red] {e}")
+        bocan.console.print(f"[red]yaml parsing error in {path.name}:[/red] {e}")
         metadata = {}
 
     return metadata
@@ -81,7 +84,7 @@ def render_help(metadata: dict):
             desc = f"[dim] {parts[1].strip()}\n[/dim]"
             guide += "".join(cmd) + "".join(desc)
 
-    console.print(
+    bocan.console.print(
         Panel(guide, title="Bocan Online Developer Guide", expand=False, border_style="cyan")
     )
 
@@ -91,13 +94,13 @@ def render_help(metadata: dict):
 #        with console.pager():
 #            console.print(md)
 
-@app.command()
+@bocan.app.command()
 def main():
     """Locate the .bocan.yaml file for the current project."""
     path = find_config_file()
 
     if not path:
-        console.print("[red]No CONTRIBUTING.md found for this project.[/red]")
+        bocan.console.print("[red]No CONTRIBUTING.md found for this project.[/red]")
         raise typer.Exit(1)
     
     metadata = parse_config_file(path)
@@ -106,4 +109,4 @@ def main():
     raise typer.Exit(0)
 
 if __name__ == "__main__":
-    app()
+    bocan.app()

@@ -80,9 +80,12 @@ These commands should now be available globally, without activating the environm
 
 ### Planned Utilities
 
+**bo-help**
+- [X] Display developer guides and tips (.bocan.yaml) for each project.
+
 **bo-new**
 - [ ] Capture project ideas in a registry to choose to start on command.
-- [ ] Scaffold new projects based on language and framework.
+- [ ] Scaffold new projects based on language and framework (recipe.yaml).
 - [ ] Initialize Git.
 - [ ] Create and link remote repos with configured namespace. 
 - [ ] Register project locally with bo utilities for quick discovery and launch.
@@ -90,27 +93,25 @@ These commands should now be available globally, without activating the environm
 **bo-open**
 - [X] Discover projects via fuzzy search.
 - [X] Load configured tmuxp sessions to jump back into project development.
-- [X] Show project information on fuzzy search (tmux session, git , github).
+- [ ] Show project information on fuzzy search (tmux session, git , github).
 - [X] Start local or containerized contexts configured for the project.
 
-**bo-clean**
+**bo-register**
+- [ ] Initialize project registry (first time run).
+- [ ] Add idea to backlog file.
+- [ ] Ask questions to flesh idea out.
+- [ ] Flag to run bo-new with the same command.
+
+**bo-update**
+- [ ] Run in the background to keep project registry data up-to-date.
 - [ ] Maintain project registry by removing invalid entries.
-
-**bo-status**
+- [ ] Check if project tmux session is currently open.
+- [ ] Check git status.
 - [ ] Check synchronization between local and remote repositories.
-
-**bo-help**
-- [X] Display developer guides and tips (DEVELOPER.md) for each project.
-- [ ] Discover markdown files via fuzzy search and open in man style viewer.
-
-**bo-setup**
-- [ ] Initialize project registry.
-- [ ] Scan project roots for repositories to register.
 
 ### Documentation
 
 README.md
-[CONTRIBUTING.md](/CONTRIBUTING.md)
 
 ---
 

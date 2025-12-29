@@ -10,9 +10,17 @@ requires-python = ">=3.10"
 dependencies = ["typer", "rich", "pyyaml"]
 
 [project.scripts]
-bo-open = "bo_open.cli:app"
-bo-help = "bo_help.cli:app"
-bo-new = "bo_new.cli:app"
+bo-add  = "bocan.apps.add.cli:bocan.app"
+bo-help = "bocan.apps.help.cli:bocan.app"
+bo-list = "bocan.apps.list.cli:bocan.app"
+bo-new  = "bocan.apps.new.cli:bocan.app"
+bo-open = "bocan.apps.open.cli:bocan.app"
 
 [tool.setuptools]
-packages = ["bo_clean", "bo_core", "bo_help", "bo_new", "bo_open", "bo_setup", "bo_status"]
+package-dir = {"" = "source"}
+
+[tool.setuptools.packages.find]
+where = ["source"]
+include = ["*"]
+exclude = ["core"]
+namespaces = false
